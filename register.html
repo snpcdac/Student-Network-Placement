@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Register</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+ <script src="register.js"></script>
+</head>
+<body>
+<div class="container ">
+      <nav class="navbar navbar-expand-sm bg-secondary">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav nav-pills">
+            <a class="nav-item nav-link" href="home.html">Home</a>
+            <a class="nav-item nav-link" href="about.html">About Us</a>
+            <a class="nav-item nav-link " href="contact.html">Contact us</a>
+          </div>
+        </div>
+      </nav>
+    </div>
+ <div class="container p-5"> 
+ 	
+	<form action="register" method="post" align="center">
+		Name:<input type="text" name="uname" id="uname" placeholder="Enter username" required><br><br>
+		Email:<input type="email" name="email" id="email"placeholder="Enter email" required><br><br>
+		Mobile Number:<input type="tel" name="tel" placeholder="Enter mobile number" pattern="[0-9]{10}" title="only numbers allowed and mobile number should be 10 digit only"><br><br>
+		Create Password:<input type="password" name="pass" id="pass" placeholder="Enter password" min=6 max=10 required><span id="msg1"></span><br><br>
+		Confirm Password:<input type="password" name="cpass" id="cpass" placeholder="Re-enter password" required><span id="msg2"></span><br><br>
+		<input type="submit" value="Register" onclick="return validation()"><br><br>
+		Already have an account?<button><a href="login.html">Log In</a></button>
+		
+	</form>
+</div>
+<div class="container">
+     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2023 Copyright: Student Network Placement
+    </div>
+    </div>
+</body>
+</html>
