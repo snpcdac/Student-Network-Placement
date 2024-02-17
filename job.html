@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Opening Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none; /* Prevent resizing of textarea */
+        }
+        input[type="submit"], .btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover, .btn:hover {
+            background-color: #0056b3;
+        }
+        .job-post {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .job-post h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .job-post p {
+            color: #555;
+        }
+        .job-actions {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Job Opening Dashboard</h1>
+        
+        <!-- Job Posting Form -->
+        <form id="jobForm">
+            <label for="jobTitle">Job Title:</label>
+            <input type="text" id="jobTitle" name="jobTitle" placeholder="Enter job title" required>
+            <label for="jobDescription">Job Description:</label>
+            <textarea id="jobDescription" name="jobDescription" rows="4" placeholder="Enter job description" required></textarea>
+            <input type="submit" value="Post Job">
+        </form>
+        
+        <!-- Job Openings Display -->
+        <div id="jobOpenings">
+            <!-- Job openings will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("jobForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get form values
+            var title = document.getElementById("jobTitle").value;
+            var description = document.getElementById("jobDescription").value;
+            
+            // Create a new job post element
+            var jobPost = document.createElement("div");
+            jobPost.classList.add("job-post");
+            jobPost.innerHTML = "<h3>" + title + "</h3><p>" + description + "</p><div class='job-actions'><button class='btn edit-btn'>Edit</button><button class='btn delete-btn'>Delete</button></div>";
+            
+            // Append the new job post to the job openings container
+            document.getElementById("jobOpenings").appendChild(jobPost);
+            
+            // Clear form fields
+            document.getElementById("jobForm").reset();
+        });
+
+        // Function to handle job post actions (edit/delete)
+        document.getElementById("jobOpenings").addEventListener("click", function(event) {
+            if (event.target.classList.contains("edit-btn")) {
+                var jobPost = event.target.closest(".job-post");
+                var jobTitle = jobPost.querySelector("h3").innerText;
+                var jobDescription = jobPost.querySelector("p").innerText;
+
+                // Pre-fill form fields with job details for editing
+                document.getElementById("jobTitle").value = jobTitle;
+                document.getElementById("jobDescription").value = jobDescription;
+
+                // Remove the job post from the DOM
+                jobPost.remove();
+            } else if (event.target.classList.contains("delete-btn")) {
+                var jobPost = event.target.closest(".job-post");
+                jobPost.remove();
+            }
+        });
+    </script>
+</body>
+</html>
