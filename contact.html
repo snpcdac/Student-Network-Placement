@@ -1,17 +1,19 @@
 <html xmlns="http://www.thymeleaf.org">
 
 <head>
-  <title>Student Placement Network</title>
+  <title>Contact</title>
+  <link rel="stylesheet" th:href="@{/css/footer.css}">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </head>
 <body>
   
   <div>
     <nav class="navbar navbar-expand-sm bg-dark p-4">
-      <a class="navbar-brand" href="home">SNP</a>
+      <a class="navbar-brand" href="home">Student Placement Network</a>
       
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,31 +28,23 @@
           <li class="nav-item">
             <a class="nav-link active" href="contact">Contact</a>
           </li>
+          <li class="nav-item">
+              <a class="nav-link" href="create-profile">Create Profile</a>
+            </li>
         </ul>
           <!-- Dropdown menu for differen login content -->
           <ul class="navbar-nav ml-auto">
-          <li class="nav-item dropdown ">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Login
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="studentlogin">Student</a>
-              <a class="dropdown-item" href="recruiterlogin">Recruiter</a>
-              <a class="dropdown-item" href="adminlogin">Admin</a>
-              </div>
-          </li>
-    
-          <li class="nav-item">
-            <a class="nav-link" href="register">Register</a>
-          </li>
-        </ul>
-    
-       
+         <li class="nav-item">
+              <a class="nav-link" href="logout">Logout</a>
+            </li>
+        </ul>  
       </div>
     </nav>
   </div>
   <div class="p-5">
     <!-- <i class="bi bi-house-door-fill"> New Delhi</i> -->
+    <p>If you have any questions,or simply want to connect, feel free to reach out. We are here to assist you:</p>
+    
     <table class="table table-striped">
       <tr>
         <td>
@@ -61,7 +55,7 @@
           </svg> Address
         </td>
         <td></td>
-        <td>178, MG Road Pune, 411 012 India</td>
+        <td>178, FC Road Pune, 411 012 India</td>
       </tr>
       <tr>
         <td>
@@ -74,7 +68,6 @@
         <td></td>
         <td>
           <i>+91 8888 234 456</i>
-
         </td>
       </tr>
       <tr>
@@ -98,10 +91,10 @@
 
   </div>
 
-  <div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.3);">
-      Copyright  © 2023 : Student Network Placement |<br>
-      developed by PG-DAC(group-1)
-      </div>
+  <footer>
+		<p>Copyright  © 2023 : Student Placement Network |<br>
+      developed by PG-DAC(group-1)</p>
+	</footer>
 </body>
 
 </html>
