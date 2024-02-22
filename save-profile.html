@@ -1,6 +1,6 @@
 <html xmlns="http://www.thymeleaf.org">
   <head>
-    <title>Create Profile</title>
+    <title>Save Profile</title>
     <link rel="stylesheet" th:href="@{/css/footer.css}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -27,16 +27,16 @@
               <a class="nav-link" href="contact">Contact</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="create-profile">Create Profile</a>
+              <a class="nav-link" href="create-profile">Create Profile</a>
             </li>
             <li class="nav-item">
-						<a class="nav-link" href="save-profile">Profile</a>
-					</li>
+              <a class="nav-link active" href="save-profile">Profile</a>
+            </li>
           </ul>
             <!-- Dropdown menu for differen login content -->
             <ul class="navbar-nav ml-auto">
 			 <li class="nav-item">
-                    <span class="navbar-text mr-3" style="color: darkorange;">Welcome, <span th:text="${studentname}"></span>!</span>
+                    <span class="navbar-text mr-3" style="color: darkorange;">Welcome, <span th:text="${profilename}"></span>!</span>
                 </li>
             <li class="nav-item">
               <a class="nav-link" href="logout">Logout</a>
@@ -56,44 +56,41 @@
                         <h2 class="text-center">Student Information</h2>
                     </div>
                     <div class="card-body">
-                        <form th:action="@{/student/save-profile}" method="post" th:object="${student}">
+                        <form th:action="@{/student/save-profile}" th:object="${savedStudent}">
                             <!-- Student Information -->
                             <h4>Student Information</h4>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="firstName">First Name<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                    <p th:text="${savedStudent.firstName}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="lastName">Last Name<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                    <p th:text="${savedStudent.lastName}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">Email<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="email" class="form-control" id="email" name="email" required>
+                                    <p th:text="${savedStudent.Email}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phone">Phone Number<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" required>
+                                    <p th:text="${savedStudent.phone}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="address">Address<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="address" name="address" required>
+                                    <p th:text="${savedStudent.address}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="dob">Date of Birth<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="date" class="form-control" id="dob" name="dob" required>
+                                   <p th:text="${savedStudent.dob}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="gender">Gender<sup style="color: crimson;">*</sup>:</label>
-                                    <select class="form-control" id="gender" name="gender" required>
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                    </select>
+                                    <p th:text="${savedStudent.gender}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="nationality">Nationality<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="nationality" name="nationality" required>
+                                    <p th:text="${savedStudent.nationality}"></p>
                                 </div>
                             </div>
 
@@ -102,23 +99,23 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="university">University/College Name<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="university" name="university" required>
+                                    <p th:text="${savedStudent.university}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="major">Specialization<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="major" name="major" required>
+                                   <p th:text="${savedStudent.major}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="graduationYear">Graduation Year<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="number" class="form-control" id="graduationYear" name="graduationYear" required>
+                                    <p th:text="${savedStudent.graduationYear}"></p>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="cgpa">CGPA<sup style="color: crimson;">*</sup>:</label>
-                                    <input type="text" class="form-control" id="cgpa" name="cgpa" required>
+                                    <p th:text="${savedStudent.cgpa}"></p>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="project">Academic Projects<sup style="color: crimson;">*</sup>:</label>
-                                    <textarea class="form-control" id="project" name="project" rows="3"></textarea>
+                                    <p th:text="${savedStudent.project}"></p>
                                 </div>
                             </div>
 
@@ -126,21 +123,20 @@
                             <h4>Resume</h4>
                             <div class="form-group">
                                 <label for="resume">Upload Resume<sup style="color: crimson;">*</sup>:</label>
-                                <input type="file" class="form-control-file" id="resume" name="resume" required>
+                                <p th:text="${savedStudent.resume}"></p>
                             </div>
 
                             <!-- Skills and Certifications -->
                             <h4>Skills and Certifications</h4>
                             <div class="form-group">
                                 <label for="skills">Skills:</label>
-                                <input type="text" class="form-control" id="skills" name="skills" >
+                                <p th:text="${savedStudent.skills}"></p>
                             </div>
                             <div class="form-group">
                                 <label for="certifications">Certifications Obtained:</label>
-                                <input type="text" class="form-control" id="certifications" name="certifications" >
+                                <p th:text="${savedStudent.certifications}"></p>
                             </div>
 
-                            <button type="submit" class="btn btn-success btn-block">Save</button>
                         </form>
                     </div>
                 </div>

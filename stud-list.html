@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" th:href="@{/css/footer.css}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<nav class="navbar navbar-expand-sm bg-dark p-4">
+			<a class="navbar-brand" href="home">Student Placement Network</a>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-pills mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="about">About us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="contact">Contact</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="create-profile">Create Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="save-profile">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" href="stud-list">Student details</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<span class="navbar-text mr-3" style="color: darkorange;">Welcome, <span th:text="${name}"></span>!</span>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="logout">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container my-5 ">
+		
+<h1> Student Details: </h1>
+<br>
+<a th:href="@{/student/showStudent}" class="btn btn-primary btn-sm mb-3">Get All Student info</a>
+<table class="table  table-bordered table-striped table-dark>">
+<thead class="table-dark">
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+<thead>
+<tbody>
+<tr th:each="stud :${students}">
+<td th:text="${stud.firstName}"/>
+<td th:text="${stud.lastName}"/>
+<td th:text="${stud.email}"/>
+<td>
+<!--<a th:href="@{/student/showFormForUpdate(employeeId=${emp.id})}" class="btn btn-info btn-sm"> Update</a> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<a th:href="@{/student/delete(studentId=${stud.id})}" 
+class="btn btn-danger btn-sm"
+onclick="if (!(confirm('Are you sure you want to delete this Student?'))) return false">
+Delete
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+		
+		
+	</div>
+	<div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.3);">
+      Copyright  © 2023 : Student Network Placement |<br>
+      developed by PG-DAC(group-1)
+      </div>
+</body>
+
+</html>

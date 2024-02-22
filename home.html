@@ -1,8 +1,10 @@
+<!DOCTYPE html>
 <html xmlns="http://www.thymeleaf.org">
 
 <head>
 	<title>Home</title>
 	<link rel="stylesheet" th:href="@{/css/footer.css}">
+	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
@@ -27,11 +29,16 @@
 					<li class="nav-item">
 						<a class="nav-link" href="create-profile">Create Profile</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="save-profile">Profile</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="stud-list">Student details</a>
+					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<span class="navbar-text mr-3" style="color: darkorange;">Welcome, <span
-								th:text="${studentname}"></span>!</span>
+						<span class="navbar-text mr-3" style="color: darkorange;">Welcome, <span th:text="${name}"></span>!</span>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="logout">Logout</a>
@@ -40,7 +47,7 @@
 			</div>
 		</nav>
 	</div>
-	<div class="container my-5 ">
+	<div class="container my-5">
 		<h3 class="text-center">Welcome to Student Placement Network</h3>
 		<p>This is home page of Student placement network program</p>
 		<p><i>Student Placement Network</i> is good way to make connections with similar interests
